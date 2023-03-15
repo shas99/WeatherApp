@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import CityComponent from './CityComponent';
 
 function Home () {
 
@@ -42,17 +43,24 @@ function Home () {
   return (
     <div>
         {/* load json data from a file in public folder*/}
-      <h1>Home</h1>
-      {console.log(data)}
+      {/* <h1>Home</h1>
+      {console.log(data)} */}
 
       {/* render data */}
-      {data.list && data.list.map((item, index) => (
+      {/* {data.list && data.list.map((item, index) => (
         <div key={index}>
           <h2>{item.name}</h2>
           <p>{item.main.temp}</p>
+
         </div>
       )
-      )}
+      )} */}
+
+      <CityComponent />
+      <CityComponent />
+      <CityComponent />
+      <CityComponent />
+      
     </div>
   );
 }
