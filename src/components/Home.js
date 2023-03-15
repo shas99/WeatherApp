@@ -9,8 +9,24 @@ function Home () {
 
       async function fetchData() {
         try {
+
           const response = await axios.get(process.env.PUBLIC_URL + '/cities.json');
-          setData(response.data);
+
+          // check if object not empty
+          if (Object.keys(response.data).length > 0) {
+
+            let comaseperatedData = response.data.List.map(item => item.CityCode);;
+        
+            axios.get(`http://api.openweathermap.org/data/2.5/group?id=${comaseperatedData}&units=metric&appid=3131d62b927d00a44bc7f0d2e2d69369`)
+            .then(function (response) {
+              console.log(response.data);
+              setData(data => response.data);
+            }
+            )
+          }
+
+
+
         }
         catch (error) {
           console.log(error);
@@ -28,6 +44,15 @@ function Home () {
         {/* load json data from a file in public folder*/}
       <h1>Home</h1>
       {console.log(data)}
+
+      {/* render data */}
+      {data.list && data.list.map((item, index) => (
+        <div key={index}>
+          <h2>{item.name}</h2>
+          <p>{item.main.temp}</p>
+        </div>
+      )
+      )}
     </div>
   );
 }
