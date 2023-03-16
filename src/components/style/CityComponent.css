@@ -1,0 +1,91 @@
+.weather-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  /* border: 1px solid #ccc; */
+  border: none;
+  padding: 20px;
+}
+
+.weather-app-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  
+  background-color: #f2f2f2;
+  /* min-width: 35%; */
+
+
+}
+
+.weather-app-body {
+    display: flex;
+    /* min-width: 35%; */
+    width: 100%;
+  }
+
+.weather-app-body-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+  background-color: #2e2c2c;
+  color: #fff;
+  /* min-width: 35%; */
+  
+  
+}
+
+.vl {
+  border-left: 6px solid green;
+  height: 200px;
+}
+
+hr.vertical {
+  border: 0;
+  margin: 0;
+  border-left: 5px solid blue;
+  height: 200px;
+  float: left;
+}
+
+.my-table table {
+  border-collapse: collapse;
+}
+
+.my-table td:last-child {
+border-left: 1px solid #000;
+border-right: none;
+}
+
+
+.below table {
+  border-collapse: collapse;
+}
+
+.below td {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.below td:first-child,
+.below td:last-child {
+  border: none;
+}
+
+
+/* above shadow is not that visible can you make it stand out */
+/* add shadow border for weather app when hovered */
+.weather-app:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: 'box-shadow 0.3s ease-in-out'
+}
