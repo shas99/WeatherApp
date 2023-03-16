@@ -6,9 +6,11 @@ function City (props) {
     const itemData = location.state;
     
   return (
-    <div style={{ width: '50%', margin: '0 auto',minHeight: '100vh' }}>
-      <CityComponent data={itemData} />
-    </div>
+<div style={{ width: '50%', margin: '0 auto',minHeight: '100vh' }}>
+    {/* an arrow to go to the previous page */}
+    <button onClick={() => window.history.back()}>&#8592;</button>
+    <CityComponent data={itemData} />
+</div>
   )
 }
 
