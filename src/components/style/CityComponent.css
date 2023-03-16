@@ -81,3 +81,11 @@ border-right: none;
 .below td:last-child {
   border: none;
 }
+
+
+/* above shadow is not that visible can you make it stand out */
+/* add shadow border for weather app when hovered */
+.weather-app:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: 'box-shadow 0.3s ease-in-out'
+}

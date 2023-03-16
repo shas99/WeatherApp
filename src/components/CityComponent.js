@@ -40,8 +40,7 @@ function CityComponent(props) {
 
                 <td>
                   <p>{props.data.wind.speed}m/s {props.data.wind.deg} Degree</p>
-                  <svg width="24" height="24" viewBox="0 0 24 24">
-                    {/* <path transform="rotate(45 12 12)" d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8z" /> */}
+                  <svg width="24" height="24" viewBox="0 0 24 24" style={{ fill: 'white' }}>
                     <path style={{ transform: `rotate(${props.data.wind.deg}deg)`, transformOrigin: 'center' }} d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8z" />
                   </svg>
                 </td>

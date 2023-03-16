@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import CityComponent from './CityComponent';
+import { useNavigate } from 'react-router-dom';
 
 function Home () {
+  
+  const navigate = useNavigate();
 
   const [data, setData] = useState({});
 
@@ -39,6 +42,10 @@ function Home () {
 
   }, []);
 
+  const handleClick = (item) => {
+    navigate('/city', { state: item });
+  }
+
 
   return (
     <div>
@@ -50,24 +57,15 @@ function Home () {
           </span>
         </h1>
 
-      {/* render data */}
-      {/* {data.list && data.list.map((item, index) => (
-        <div key={index}> */}
-          {/* <h2>{item.name}</h2>
-          <p>{item.main.temp}</p> */}
-          {/* <CityComponent data={item}/>
+
+
+        <div style={{display: 'flex', flexWrap: 'wrap'}}>
+          {data.list && data.list.map((item, index) => (
+            <div key={index} style={{margin:"10px"}} onClick={() => handleClick(item)}>
+              <CityComponent data={item}/>
+            </div>
+          ))}
         </div>
-      )
-      )} */}
-
-
-<div style={{display: 'flex', flexWrap: 'wrap'}}>
-  {data.list && data.list.map((item, index) => (
-    <div key={index} style={{margin:"10px"}}>
-      <CityComponent data={item}/>
-    </div>
-  ))}
-</div>
 
 
 
