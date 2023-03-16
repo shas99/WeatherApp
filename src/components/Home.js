@@ -43,18 +43,31 @@ function Home () {
   return (
     <div>
         {/* load json data from a file in public folder*/}
-      <h1>Weather app</h1>
-      
+        <h1>
+          <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <img src={`http://openweathermap.org/img/w/02d.png`} alt="Weather icon" />
+            Weather app
+          </span>
+        </h1>
 
       {/* render data */}
-      {data.list && data.list.map((item, index) => (
-        <div key={index}>
+      {/* {data.list && data.list.map((item, index) => (
+        <div key={index}> */}
           {/* <h2>{item.name}</h2>
           <p>{item.main.temp}</p> */}
-          <CityComponent data={item}/>
+          {/* <CityComponent data={item}/>
         </div>
       )
-      )}
+      )} */}
+
+
+<div style={{display: 'flex', flexWrap: 'wrap'}}>
+  {data.list && data.list.map((item, index) => (
+    <div key={index} style={{margin:"10px"}}>
+      <CityComponent data={item}/>
+    </div>
+  ))}
+</div>
 
 
 
