@@ -43,23 +43,21 @@ function Home () {
   return (
     <div>
         {/* load json data from a file in public folder*/}
-      {/* <h1>Home</h1>
-      {console.log(data)} */}
+      <h1>Weather app</h1>
+      
 
       {/* render data */}
-      {/* {data.list && data.list.map((item, index) => (
+      {data.list && data.list.map((item, index) => (
         <div key={index}>
-          <h2>{item.name}</h2>
-          <p>{item.main.temp}</p>
-
+          {/* <h2>{item.name}</h2>
+          <p>{item.main.temp}</p> */}
+          <CityComponent data={item}/>
         </div>
       )
-      )} */}
+      )}
 
-      <CityComponent />
-      <CityComponent />
-      <CityComponent />
-      <CityComponent />
+
+
       
     </div>
   );

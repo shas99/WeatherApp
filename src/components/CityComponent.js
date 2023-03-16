@@ -1,26 +1,25 @@
 import React from 'react';
 import './style/CityComponent.css';
 
-function CityComponent() {
+function CityComponent(props) {
   return (
     <div className="weather-app">
       <div className="weather-app-header">
-        <h2>Seattle</h2>
+        <h2>{props.data.name}</h2>
         <div style={{ display: 'flex' }}>
-          <p>10:00 AM</p>
-          <p>,</p>
-          <p>March 15, 2023</p>
+          {new Date(props.data.dt*1000).toString()}
         </div>
         <table className="my-table">
           <tbody>
             <tr>
-              <td>Sunny</td>
+            <img src={`http://openweathermap.org/img/w/${props.data.weather[0].icon}.png`} alt="Weather icon" />
+              <td>{props.data.weather[0].description}</td>
               <td>
-                27C
+                {props.data.main.temp}°C
                 <br />
-                Temp Min: 25c
+                Temp Min: {props.data.main.temp_min}
                 <br />
-                Temp Max: 25c
+                Temp Max: {props.data.main.temp_max}
               </td>
             </tr>
           </tbody>
@@ -33,13 +32,13 @@ function CityComponent() {
             <tbody>
               <tr>
                 <td>
-                  <p>Pressure: 1018hPa</p>
-                  <p>Humidity: 78%</p>
-                  <p>Visibility: 8.0km</p>
+                  <p>Pressure: {props.data.main.pressure}Pa</p>
+                  <p>Humidity: {props.data.main.humidity}%</p>
+                  <p>Visibility: {props.data.visibility}km</p>
                 </td>
 
                 <td>
-                  <p>4.0m/s 120 Degree</p>
+                  <p>{props.data.wind.speed}m/s {props.data.wind.deg} Degree</p>
                 </td>
 
                 <td>
