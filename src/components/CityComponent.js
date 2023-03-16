@@ -1,13 +1,14 @@
 import React from 'react';
 import './style/CityComponent.css';
 
+
 function CityComponent(props) {
   return (
     <div className="weather-app">
       <div className="weather-app-header">
         <h2>{props.data.name}</h2>
         <div style={{ display: 'flex' }}>
-          {new Date(props.data.dt*1000).toString()}
+          {new Date(props.data.dt*1000).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}
         </div>
         <table className="my-table">
           <tbody>
@@ -39,11 +40,15 @@ function CityComponent(props) {
 
                 <td>
                   <p>{props.data.wind.speed}m/s {props.data.wind.deg} Degree</p>
+                  <svg width="24" height="24" viewBox="0 0 24 24">
+                    {/* <path transform="rotate(45 12 12)" d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8z" /> */}
+                    <path style={{ transform: `rotate(${props.data.wind.deg}deg)`, transformOrigin: 'center' }} d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8z" />
+                  </svg>
                 </td>
 
                 <td>
-                  <p>Sunrise: 6.05am</p>
-                  <p>Visibility: 6.05am</p>
+                  <p>Sunrise: {new Date(props.data.sys.sunrise*1000).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}</p>
+                  <p>Visibility: {new Date(props.data.sys.sunset*1000).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}</p>
                 </td>
               </tr>
             </tbody>
